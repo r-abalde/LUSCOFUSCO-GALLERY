@@ -16,6 +16,7 @@ app.config['MYSQL_DB'] = 'luscologin'
 
 mysql = MySQL(app)
 
+
 @app.route('/')
 @app.route('/login', methods =['GET', 'POST'])
 def login():

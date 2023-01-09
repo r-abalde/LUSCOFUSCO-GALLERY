@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +15,16 @@
 
 <header id="header" class="hoc clear"><br>
     <div id="contenedor">
+        <!-- Logo -->
         <div id="logo" class="fl_left">
             <a href="http://127.0.0.1:5000/index">
-                <h1>LUSCOFUSCO</h1> </a>
+                <h1>LUSCOFUSCO</h1></a>
             <h2>GALLERY</h2>
             <p>This are the results of your search that we currently own or are holding for an exposition.</p>
 
         </div>
+
+        <!-- Search button* -->
         <div id="cover">
             <form method="POST" action="/galleryResults">
                 <div class="tb">
@@ -40,30 +42,34 @@
         </div>
     </div>
     <br><br>
-
 </header>
 <!-- Gallery -->
 
 <div class="scrollblock">
     <div class="container-fluid pt-10">
-<div class="row justify-content-md-center ">
-    <div class="col-md-10 col-sm-12">
-        <div class="card-columns-result">
-            <%artList.forEach(art => {%>
-                    <div class="card-body">
-                        <img class="card-img-top" alt=""  src="<%= art.image %>">
-                        <b><%= art.title %></b>
-                        <p><%= art.description %></p>
-                        <b>Collection:</b><p><%= art.ArtCollection %> </p>
-                        <b>Date Created:</b><p><%= art.displayDateCreated %></p>
-                        <b>Place of creation:</b><p><%= art.placeOfCreation %></p>
-                        <b>Room:</b><p><%= art.room %></p>
-                        <b>Owned by:</b><p><%= art.ownedBy %></p>
-                    </div>
-                <%})%>
+        <div class="row justify-content-md-center ">
+            <div class="col-md-10 col-sm-12">
+                <div class="card-columns-result">
+                    <% artList.forEach(art => { %>
+                        <div class="card-body">
+                            <img class="card-img-top" alt="" src="<%= art.image %>">
+                            <b><%= art.title %></b>
+                            <p><%= art.description %></p>
+                            <b>Collection:</b>
+                            <p><%= art.ArtCollection %> </p>
+                            <b>Date Created:</b>
+                            <p><%= art.displayDateCreated %></p>
+                            <b>Place of creation:</b>
+                            <p><%= art.placeOfCreation %></p>
+                            <b>Room:</b>
+                            <p><%= art.room %></p>
+                            <b>Owned by:</b>
+                            <p><%= art.ownedBy %></p>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     </div>
 </div>
 <script type="text/javascript">
@@ -76,7 +82,7 @@
     for (var i = 0; i < images.length; i++) {
         var img = images[i];
         // and attach our click listener for this image.
-        img.onclick = function(evt) {
+        img.onclick = function (evt) {
             modal.style.display = "block";
             modalImg.src = this.src;
             captionText.innerHTML = this.alt;
@@ -86,7 +92,7 @@
     var span = document.getElementsByClassName("close")[0];
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
     }
 </script>

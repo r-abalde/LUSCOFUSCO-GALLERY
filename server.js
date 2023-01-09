@@ -25,7 +25,7 @@ app.get('/gallery', (req, res) => {
                 console.log("tres");
                 console.log(art[i]);
             }*/
-            res.render('gallery.ejs', {artList:art} );
+            res.render('gallery.ejs', {artList: art});
 
             client.close();
         });
@@ -40,33 +40,33 @@ app.get('/galleryShop', (req, res, next) => {
     MongoClient.connect(url, function (err, client) {
         if (err) throw err;
         var db = client.db('luscofusco');
-        db.collection('artgallery').find({ ownedBy: "Luscofusco" }).toArray(function (findErr, art) {
+        db.collection('artgallery').find({ownedBy: "Luscofusco"}).toArray(function (findErr, art) {
             if (findErr) throw findErr;
 
-            res.render('galleryShop.ejs', {artList:art});
-
-            client.close();
-            });
-        });
-    });
-
-/*Get with search results */
-app.post('/galleryResults', (req, res, next) => {
-    var MongoClient = require('mongodb').MongoClient;
-    const url = "mongodb+srv://ud:ud@cluster0.szg5vgf.mongodb.net/?retryWrites=true&w=majority";
-    MongoClient.connect(url, function (err, client) {
-        if (err) throw err;
-        var db = client.db('luscofusco');
-        db.collection('artgallery').find({ title: req.body.nameArt }).toArray(function (findErr, art) {
-            if (findErr) throw findErr;
-
-            res.render('galleryResults.ejs', {artList:art});
+            res.render('galleryShop.ejs', {artList: art});
 
             client.close();
         });
     });
 });
 
-app.listen(3000,function () {
+/*Page with search results */
+app.post('/galleryResults', (req, res, next) => {
+    var MongoClient = require('mongodb').MongoClient;
+    const url = "mongodb+srv://ud:ud@cluster0.szg5vgf.mongodb.net/?retryWrites=true&w=majority";
+    MongoClient.connect(url, function (err, client) {
+        if (err) throw err;
+        var db = client.db('luscofusco');
+        db.collection('artgallery').find({title: req.body.nameArt}).toArray(function (findErr, art) {
+            if (findErr) throw findErr;
+
+            res.render('galleryResults.ejs', {artList: art});
+
+            client.close();
+        });
+    });
+});
+
+app.listen(3000, function () {
     console.log("Server is running on port 3000");
 });
