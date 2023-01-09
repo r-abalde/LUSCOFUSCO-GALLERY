@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join('../app')));
 app.use(bodyParser.urlencoded());
 
-/*Get for full onlinegallery */
+/*Get for full online gallery */
 app.get('/gallery', (req, res) => {
     var MongoClient = require('mongodb').MongoClient;
     const url = "mongodb+srv://ud:ud@cluster0.szg5vgf.mongodb.net/?retryWrites=true&w=majority";
