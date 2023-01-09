@@ -57,7 +57,7 @@ app.post('/galleryResults', (req, res, next) => {
     MongoClient.connect(url, function (err, client) {
         if (err) throw err;
         var db = client.db('luscofusco');
-        db.collection('artgallery').find({title: req.body.nameArt}).toArray(function (findErr, art) {
+        db.collection('artgallery').find({$or: [ {title: req.body.nameArt},{author: req.body.nameArt}]}).toArray(function (findErr, art) {
             if (findErr) throw findErr;
 
             res.render('galleryResults.ejs', {artList: art});
