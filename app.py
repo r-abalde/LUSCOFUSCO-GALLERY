@@ -31,19 +31,19 @@ def login():
             session['loggedin'] = True
             session['id'] = account['id']
             session['username'] = account['username']
-            return redirect(url_for('index'))
+            return redirect('/index')
         else:
             msg = 'Incorrect username / password !'
     return render_template('login.html', msg = msg)
 
-@app.route('/logout')
+@app.route('/logout',methods=['GET'])
 def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('username', None)
-    return redirect(url_for('login'))
+    return redirect('/login')
 
-@app.route('/register', methods =['GET', 'POST'])
+@app.route('/register', methods =['GET','POST'])
 def register():
     msg = ''
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form :
@@ -69,11 +69,11 @@ def register():
         msg = 'Please fill out the form !'
     return render_template('register.html', msg = msg)
 
-@app.route('/index')
+@app.route('/index',methods=['GET'])
 def index():
     # Check if user is loggedin
     if 'loggedin' in session:
         # User is loggedin show them the home page
         return render_template('index.html', username=session['username'])
     # User is not loggedin redirect to login page
-    return redirect(url_for('login'))
+    return redirect('/login')
