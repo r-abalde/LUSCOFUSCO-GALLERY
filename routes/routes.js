@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded());
 // 1.
 const router  = express.Router();
 // 2.
-const artController = require('controllers/controllers.js');
+const artController = require('../controllers/controllers');
 
 //nodejs functions
 router.get('/', artController.galleryART);
