@@ -31,7 +31,7 @@ def login():
             session['loggedin'] = True
             session['id'] = account['id']
             session['username'] = account['username']
-            return redirect('/index')
+            return redirect(url_for('index'))
         else:
             msg = 'Incorrect username / password !'
     return render_template('login.html', msg = msg)
@@ -41,7 +41,7 @@ def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('username', None)
-    return redirect('/login')
+    return redirect(url_for('login'))
 
 @app.route('/register', methods =['GET','POST'])
 def register():
@@ -75,5 +75,7 @@ def index():
     if 'loggedin' in session:
         # User is loggedin show them the home page
         return render_template('index.html', username=session['username'])
+
     # User is not loggedin redirect to login page
-    return redirect('/login')
+    return redirect(url_for('login'))
+

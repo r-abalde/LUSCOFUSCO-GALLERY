@@ -18,16 +18,11 @@ const router  = express.Router();
 const artController = require('../controllers/controllers');
 
 //nodejs functions
-router.get('/gallery', artController.galleryART);
+router.get('/', artController.galleryART);
 router.get('/galleryShop', artController.shopART);
 router.post('/galleryResults', artController.searchART);
-//flask functions
-router.get('/index', artController.indexART);
-router.get('/login', artController.loginARTGET);
-router.post('/login', artController.loginARTPOST);
-router.get('/logout', artController.logoutART);
-router.get('/register', artController.registerARTGET);
-router.post('/register', artController.registerARTPOST);
 
+//flask functions
+//router.get('/index', artController.indexART);
 // 4.
 module.exports = router;
