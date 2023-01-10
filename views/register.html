@@ -13,7 +13,7 @@
      CREATE YOUR ACCOUNT
     </div></br></br></br>
     <h2 class="form-group">
-      <form action="{{ url_for('register') }}" method="post">
+      <form action="/register" method="post">
         <div class="form-group">
           <label class="form-control-label">USERNAME</label>
           <input id = "username" name='username' type="text" class="form-control">
@@ -29,7 +29,7 @@
         <input type="submit" class="btn btn-outline-primary" value="REGISTER"></br>
       </form>
     </h2>
-    <p class="bottom">Already have an account?  <a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p>
+    <p class="bottom">Already have an account?  <a class="bottom" href="/login"> Sign In here</a></p>
     </div>
   </div>
 </body>
