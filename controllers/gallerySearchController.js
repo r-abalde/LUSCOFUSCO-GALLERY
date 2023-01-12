@@ -31,6 +31,12 @@ const searchART = (req, res, next) => {
 };
 
 
+//Exportar los modulos para ser recibidos por routes.js
+module.exports = {
+    searchART
+};
+
+
 /*Flask functions*/
 /*
 const loginARTPOST = (req, res) => {
@@ -86,8 +92,3 @@ const indexART = (req, res) => {
         res.sendFile( 'index.html',{root: 'templates'});
     });
 };*/
-
-//Exportar los modulos para ser recibidos por routes.js
-module.exports = {
-    searchART
-};

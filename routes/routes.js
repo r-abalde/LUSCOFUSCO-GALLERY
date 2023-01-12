@@ -1,5 +1,4 @@
 const express = require('express'); //import express
-const mongoose = require('mongoose');
 const request = require('request');
 const app = express();
 const ejs = require('ejs');
