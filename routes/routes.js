@@ -15,12 +15,14 @@ app.use(bodyParser.urlencoded());
 // 1.
 const router  = express.Router();
 // 2.
-const artController = require('../controllers/controllers');
+const artSearchController = require('../controllers/gallerySearchController');
+const artShopController = require('../controllers/galleryShopController');
+const artController = require('../controllers/galleryController');
 
 //nodejs functions
 router.get('/', artController.galleryART);
-router.get('/galleryShop', artController.shopART);
-router.post('/galleryResults', artController.searchART);
+router.get('/galleryShop', artShopController.shopART);
+router.post('/galleryResults', artSearchController.searchART);
 
 //flask functions
 //router.get('/index', artController.indexART);

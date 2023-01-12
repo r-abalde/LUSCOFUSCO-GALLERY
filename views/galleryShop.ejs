@@ -12,14 +12,32 @@
 </head>
 <body style="background-color:white;">
 
-
 <header id="header" class="hoc clear"><br>
-    <div id="logo" class="fl_left">
-        <a href="http://127.0.0.1:5000/index">
-            <h1>LUSCOFUSCO</h1> </a>
-        <h2>SHOP</h2>
-        <p>This are the art pieces owned by our gallery and available to buy. </p><br><br>
-    </div>
+    <div id="contenedor">
+            <!-- Logo -->
+            <div id="logo" class="fl_left">
+                <a href="http://127.0.0.1:5000/index">
+                    <h1>LUSCOFUSCO</h1></a>
+                <h2>SHOP</h2>
+                <p>This are the art pieces owned by our gallery and available to buy. </p><br><br>
+            </div>
+            <!-- Search button* -->
+            <div id="cover">
+                <form method="POST" action="/galleryResults">
+                    <div class="tb">
+                        <div class="td">
+                            <input type="text" placeholder="Search" name="nameArt" required/>
+                        </div>
+                        <div class="td" id="s-cover">
+                            <button type="submit" onclick="location.href='http://127.0.0.1:3000/galleryResults';">
+                                <div id="s-circle"></div>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 </header>
 <!-- Gallery -->
 <div class="row justify-content-md-center ">
@@ -77,8 +95,9 @@
 </div>
 <!-- End Gallery -->
 <br><br>
-<input class="button-6" type="button" text-align:center onclick="location.href='http://127.0.0.1:5000/index';" value="HOME"/>
-<br><br>
+
+<input class="button-6" type="button" onclick="location.href='http://127.0.0.1:3000/';" value="GO BACK"/>
+</div></div><br><br>
 
 </body>
 </html>

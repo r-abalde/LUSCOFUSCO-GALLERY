@@ -12,7 +12,6 @@
 </head>
 <body style="background-color:white;">
 
-
 <header id="header" class="hoc clear"><br>
     <div id="contenedor">
         <!-- Logo -->
@@ -67,41 +66,19 @@
                             <p><%= art.room %></p>
                             <b>Owned by:</b>
                             <p><%= art.ownedBy %></p>
+                            <img alt="" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<%= art.image %>">
                         </div>
                     <% }) %>
+                    <br>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    // Get the modal
-    var modal = document.getElementById("myModal");
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var images = document.getElementsByClassName("card-img-top");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    for (var i = 0; i < images.length; i++) {
-        var img = images[i];
-        // and attach our click listener for this image.
-        img.onclick = function (evt) {
-            modal.style.display = "block";
-            modalImg.src = this.src;
-            captionText.innerHTML = this.alt;
-        }
-    }
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-</script>
 <!-- End Gallery -->
 <br><br>
-<input class="button-6" type="button" onclick="location.href='http://127.0.0.1:5000/index';" value="HOME"/>
-<br><br>
+<input class="button-6" type="button" onclick="location.href='http://127.0.0.1:3000/';" value="GO BACK"/>
+  <br><br>
 
 </body>
 </html>

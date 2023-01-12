@@ -18,6 +18,7 @@
     "mongodb": "^4.13.0",
     "mongoose": "^6.8.3",
     "nodemon": "^2.0.20",
+    "qrcode": "^1.5.1",
     "request": "^2.88.2",
     "tedious": "^15.1.2"
   }

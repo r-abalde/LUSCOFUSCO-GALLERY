@@ -12,44 +12,6 @@ app.use(express.json());
 app.use(express.static(path.join('../app')));
 app.use(bodyParser.urlencoded());
 
-/*Get for full online gallery */
-const galleryART = (req, res) => {
-    var MongoClient = require('mongodb').MongoClient;
-    const url = "mongodb+srv://ud:ud@cluster0.szg5vgf.mongodb.net/?retryWrites=true&w=majority";
-    MongoClient.connect(url, function (err, client) {
-        if (err) throw err;
-        var db = client.db('luscofusco');
-        db.collection('artgallery').find({}).toArray(function (findErr, art) {
-            if (findErr) throw findErr;
-            /*
-            for (let i = 0; i < art.length; i++) {
-                console.log("tres");
-                console.log(art[i]);
-            }*/
-            res.render('gallery.ejs', {artList: art});
-
-            client.close();
-        });
-    });
-
-};
-
-/*Get with only the pieces owned by the gallery */
-const shopART = (req, res, next) => {
-    var MongoClient = require('mongodb').MongoClient;
-    const url = "mongodb+srv://ud:ud@cluster0.szg5vgf.mongodb.net/?retryWrites=true&w=majority";
-    MongoClient.connect(url, function (err, client) {
-        if (err) throw err;
-        var db = client.db('luscofusco');
-        db.collection('artgallery').find({ownedBy: "Luscofusco"}).toArray(function (findErr, art) {
-            if (findErr) throw findErr;
-
-            res.render('galleryShop.ejs', {artList: art});
-
-            client.close();
-        });
-    });
-};
 
 /*Page with search results */
 const searchART = (req, res, next) => {
@@ -127,7 +89,5 @@ const indexART = (req, res) => {
 
 //Exportar los modulos para ser recibidos por routes.js
 module.exports = {
-    galleryART,
-    searchART,
-    shopART
+    searchART
 };

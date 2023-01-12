@@ -791,7 +791,6 @@ h2 {
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.85);
     cursor: pointer;
-    display: flex;
     font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 600;
@@ -807,6 +806,8 @@ h2 {
     touch-action: manipulation;
     vertical-align: baseline;
     width: auto;
+    text-align: center;
+    display: flex;
 }
 
 .button-6:hover,
@@ -977,3 +978,7 @@ button span:after {
 #contenedor > div {
     width: 50%;
 }
+
+
+
+
