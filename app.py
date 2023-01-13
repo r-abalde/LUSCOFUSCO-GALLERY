@@ -31,7 +31,7 @@ def login():
             session['loggedin'] = True
             session['id'] = account['id']
             session['username'] = account['username']
-            return redirect(url_for('index'))
+            return redirect('http://127.0.0.1:3000/')
         else:
             msg = 'Incorrect username / password !'
     return render_template('login.html', msg = msg)

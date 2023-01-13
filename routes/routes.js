@@ -17,13 +17,15 @@ const router  = express.Router();
 const artSearchController = require('../controllers/gallerySearchController');
 const artShopController = require('../controllers/galleryShopController');
 const artController = require('../controllers/galleryController');
+const indexController = require('../controllers/indexController');
 
 //nodejs functions
-router.get('/', artController.galleryART);
+router.get('/gallery', artController.galleryART);
 router.get('/galleryShop', artShopController.shopART);
 router.post('/galleryResults', artSearchController.searchART);
 
 //flask functions
-//router.get('/index', artController.indexART);
+router.get('/', indexController.indexART);
+
 // 4.
 module.exports = router;
