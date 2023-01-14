@@ -3,7 +3,6 @@ const request = require("request");
 const indexART = (req, res) => {
     var options = { method: 'GET',
         url: 'http://127.0.0.1:5000/index'};
-    console.log("get")
     return request(options, function (error, response, body) {
         if (error) throw new Error(error);
         res.sendFile( 'index.html',{root: 'templates'});
